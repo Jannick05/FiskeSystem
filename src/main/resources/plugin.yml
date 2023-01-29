@@ -1,0 +1,6 @@
+name: Fisk
+version: '${project.version}'
+main: dk.nydt.Fisk
+authors: [ Nydt, Shad0wsense ]
+description: Fiskesytem til custom fisk
+website: cutekat.dk

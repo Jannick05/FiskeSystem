@@ -1,0 +1,19 @@
+Fangster:
+  1:
+    Name: "ok"
+    Item-Type: PAPER
+    Enchanted: true
+    Chance: 50
+    Messages:
+    - "du fangede papir"
+    Commands:
+    - "kick iskoldcool"
+  2:
+    Name: "ok2"
+    Item-Type: BOOK
+    Enchanted: false
+    Chance: 50
+    Messages:
+      - "du fangede book"
+    Commands:
+      - "kick iskoldcool"
