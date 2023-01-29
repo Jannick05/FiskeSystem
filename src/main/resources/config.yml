@@ -1,19 +1,23 @@
+GUI:
+  Top: WHITE_STAINED_GLASS_PANE
+  Bottom: PURPLE_STAINED_GLASS_PANE
+
 Fangster:
   1:
-    Name: "ok"
-    Item-Type: PAPER
+    Name: "FISK"
+    Item-Type: RAW_FISH
     Enchanted: true
     Chance: 50
     Messages:
-    - "du fangede papir"
+    - "du fangede en FISK"
     Commands:
-    - "kick iskoldcool"
+    - ""
   2:
-    Name: "ok2"
-    Item-Type: BOOK
+    Name: "&DKAGE"
+    Item-Type: CAKE
     Enchanted: false
     Chance: 50
     Messages:
-      - "du fangede book"
+      - "du fangede en kage og 10 kr"
     Commands:
-      - "kick iskoldcool"
+      - "eco give %player% 10"
