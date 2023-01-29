@@ -1,6 +1,7 @@
 package dk.nydt;
 
 import dk.nydt.commands.Fisk;
+import dk.nydt.events.InteractEvent;
 import dk.nydt.events.PlayerFishListener;
 import dk.nydt.utils.Config;
 import dk.nydt.utils.FiskReload;
@@ -23,6 +24,7 @@ public final class Main extends JavaPlugin {
         instance = this;
 
         getCommand("Fisk").setExecutor(new Fisk());
+        getServer().getPluginManager().registerEvents(new InteractEvent(), this);
 
         //Config.yml
         if (!(new File(getDataFolder(), "config.yml")).exists())
