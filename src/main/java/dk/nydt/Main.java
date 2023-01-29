@@ -1,18 +1,18 @@
 package dk.nydt;
 
+import dk.nydt.commands.Fisk;
 import dk.nydt.events.PlayerFishListener;
 import dk.nydt.utils.Config;
 import dk.nydt.utils.FiskReload;
-import dk.nydt.utils.Prize;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 
-public final class Fisk extends JavaPlugin {
+public final class Main extends JavaPlugin {
     private static PluginManager pluginManager;
-    public static Fisk instance;
+    public static Main instance;
     public static Config config;
     public static FileConfiguration configYML;
 
@@ -21,6 +21,8 @@ public final class Fisk extends JavaPlugin {
     public void onEnable() {
         pluginManager = getServer().getPluginManager();
         instance = this;
+
+        getCommand("Fisk").setExecutor(new Fisk());
 
         //Config.yml
         if (!(new File(getDataFolder(), "config.yml")).exists())
@@ -44,7 +46,7 @@ public final class Fisk extends JavaPlugin {
         // Plugin shutdown logic
     }
 
-    public static Fisk getInstance(){
+    public static Main getInstance(){
         return instance;
     }
 

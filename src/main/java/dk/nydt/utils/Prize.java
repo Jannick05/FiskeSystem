@@ -1,6 +1,6 @@
 package dk.nydt.utils;
 
-import dk.nydt.Fisk;
+import dk.nydt.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -9,8 +9,6 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Prize {
@@ -29,12 +27,12 @@ public class Prize {
     }
 
     public Prize(String path){
-        this.name = Fisk.configYML.getString("Fangster." + path + ".Name");
-        Material itemType = Material.valueOf(Fisk.configYML.getString("Fangster." + path + ".Item-Type").toUpperCase());
-        boolean isEnchanted = Fisk.configYML.getBoolean("Fangster." + path + ".Enchanted");
-        this.percentage = (float) Fisk.configYML.getDouble("Fangster." + path + ".Chance");
-        this.commands = Fisk.configYML.getStringList("Fangster." + path + ".Commands");
-        this.messages = Fisk.configYML.getStringList("Fangster." + path + ".Messages");
+        this.name = Main.configYML.getString("Fangster." + path + ".Name");
+        Material itemType = Material.valueOf(Main.configYML.getString("Fangster." + path + ".Item-Type").toUpperCase());
+        boolean isEnchanted = Main.configYML.getBoolean("Fangster." + path + ".Enchanted");
+        this.percentage = (float) Main.configYML.getDouble("Fangster." + path + ".Chance");
+        this.commands = Main.configYML.getStringList("Fangster." + path + ".Commands");
+        this.messages = Main.configYML.getStringList("Fangster." + path + ".Messages");
 
         ItemStack previewItem = new ItemStack(itemType);
         if(isEnchanted) previewItem.addUnsafeEnchantment(Enchantment.LURE, 1);

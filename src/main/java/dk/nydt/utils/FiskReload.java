@@ -1,11 +1,7 @@
 package dk.nydt.utils;
 
-import dk.nydt.Fisk;
-import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
-import org.bukkit.inventory.ItemFlag;
+import dk.nydt.Main;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 
@@ -18,7 +14,7 @@ public class FiskReload {
 
         // Generate Preview INV
         int size = 9;
-        Set<String> prizes = Fisk.configYML.getConfigurationSection("Fangster").getKeys(false);
+        Set<String> prizes = Main.configYML.getConfigurationSection("Fangster").getKeys(false);
         if (prizes.size() > 9) size = 18;
         if (prizes.size() > 18) size = 27;
         if (prizes.size() > 27) size = 36;

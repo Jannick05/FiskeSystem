@@ -2,7 +2,6 @@ package dk.nydt.events;
 
 import dk.nydt.utils.Prize;
 import org.bukkit.event.Event;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
 

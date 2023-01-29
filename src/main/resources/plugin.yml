@@ -1,6 +1,11 @@
 name: Fisk
 version: '${project.version}'
-main: dk.nydt.Fisk
+main: dk.nydt.Main
+api-version: 1.8
+prefix: [ FISK ]
 authors: [ Nydt, Shad0wsense ]
-description: Fiskesytem til custom fisk
+description: Fiskesystem med config
 website: cutekat.dk
+commands:
+  fisk:
+    description: Commands til FISK

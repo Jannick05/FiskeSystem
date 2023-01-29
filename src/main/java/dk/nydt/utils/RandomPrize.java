@@ -1,6 +1,6 @@
 package dk.nydt.utils;
 
-import dk.nydt.Fisk;
+import dk.nydt.Main;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -12,7 +12,7 @@ public class RandomPrize {
 
 
     public RandomPrize(){
-        ArrayList<Prize> prizes = Fisk.rc.getPrizes();
+        ArrayList<Prize> prizes = Main.rc.getPrizes();
         float[] chanceTable = generateChanceTable(prizes);
         Random random = new Random();
         float randomNum = (float) random.nextInt(10100) / 100;
