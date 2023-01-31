@@ -40,7 +40,7 @@ public class GUI {
         final ItemMeta meta = item.getItemMeta();
 
         // Set the name of the item
-        meta.setDisplayName(name);
+        meta.setDisplayName(Chat.colored(name));
 
         // Set the lore of the item
         meta.setLore(Arrays.asList(lore));
@@ -55,7 +55,7 @@ public class GUI {
         final ItemMeta meta = item.getItemMeta();
 
         // Set the name of the item
-        meta.setDisplayName(name);
+        meta.setDisplayName(Chat.colored(name));
 
         // Set the lore of the item
         meta.setLore(Arrays.asList(lore));

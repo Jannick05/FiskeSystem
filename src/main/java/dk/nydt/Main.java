@@ -6,6 +6,7 @@ import dk.nydt.events.PlayerFishListener;
 import dk.nydt.utils.Config;
 import dk.nydt.utils.FiskReload;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -24,7 +25,7 @@ public final class Main extends JavaPlugin {
         instance = this;
 
         getCommand("Fisk").setExecutor(new Fisk());
-        getServer().getPluginManager().registerEvents(new InteractEvent(), this);
+
 
         //Config.yml
         if (!(new File(getDataFolder(), "config.yml")).exists())
@@ -35,7 +36,7 @@ public final class Main extends JavaPlugin {
 
         //Register Events
         getServer().getPluginManager().registerEvents(new PlayerFishListener(), this);
-
+        getServer().getPluginManager().registerEvents(new InteractEvent(this), this);
         rc = new FiskReload();
         rc.reload();
 
@@ -50,6 +51,10 @@ public final class Main extends JavaPlugin {
 
     public static Main getInstance(){
         return instance;
+    }
+
+    public static void openPreview(Player player) {
+        player.openInventory(Main.rc.getPreview());
     }
 
 }
