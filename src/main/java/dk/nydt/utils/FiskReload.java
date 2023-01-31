@@ -33,12 +33,11 @@ public class FiskReload {
         float totalPercentage = 0.00f;
 
         int n = 0;
-        List<String> ITEM_LORE = Main.configYML.getStringList("GUI.Lorename");
+        String LoreColor = Main.configYML.getString("GUI.LoreColor");
         for(String winning : prizes){
             Prize prize = new Prize(winning);
 
-
-            inventory.setItem(n, GUI.createItemStack(prize.getPreviewItem(), Chat.colored(prize.getName()), Chat.colored(String.valueOf( "&a" + prize.getChance() + " &fChance"))));
+            inventory.setItem(n, GUI.createItemStack(prize.getPreviewItem(), Chat.colored(prize.getName()), Chat.colored(String.valueOf( LoreColor + (int) prize.getChance() + "% &fChance"))));
 
             this.prizes.add(prize);
             totalPercentage += prize.getChance();

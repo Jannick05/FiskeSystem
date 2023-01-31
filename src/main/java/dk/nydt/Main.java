@@ -2,6 +2,7 @@ package dk.nydt;
 
 import dk.nydt.commands.Fisk;
 import dk.nydt.events.InteractEvent;
+import dk.nydt.events.InventoryListener;
 import dk.nydt.events.PlayerFishListener;
 import dk.nydt.utils.Config;
 import dk.nydt.utils.FiskReload;
@@ -36,6 +37,7 @@ public final class Main extends JavaPlugin {
 
         //Register Events
         getServer().getPluginManager().registerEvents(new PlayerFishListener(), this);
+        getServer().getPluginManager().registerEvents(new InventoryListener(), this);
         getServer().getPluginManager().registerEvents(new InteractEvent(this), this);
         rc = new FiskReload();
         rc.reload();

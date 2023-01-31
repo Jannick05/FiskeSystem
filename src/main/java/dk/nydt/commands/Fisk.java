@@ -11,14 +11,21 @@ public class Fisk implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player p = (Player) sender;
-        if (!p.hasPermission("Fisk.admin")) {
-            sender.sendMessage(Chat.colored("&cIngen adgang"));
-            return true;
-        }
         String _command = (label == null) ? String.valueOf(command) : label;
         if(args.length == 0) {
-            sendDefaultCommand(sender, _command);
-        } else if (p.hasPermission("fisk.reload")) {
+            if (!p.hasPermission("Fisk.admin")) {
+                sendNoobDefaultCommand(sender, _command);
+            } else {
+                sendAdminDefaultCommand(sender, _command);
+            }
+            return true;
+        } else if (args[0].equalsIgnoreCase("fangster")) {
+            p.openInventory(Main.rc.getPreview());
+            return true;
+        } else if (!p.hasPermission("fisk.admin")) {
+            sender.sendMessage(Chat.colored("&cIngen adgang"));
+            return true;
+        } else if (args[0].equalsIgnoreCase("reload")) {
             boolean reloadSuccess;
             try {
                 Main.config.reloadConfig();
@@ -37,12 +44,18 @@ public class Fisk implements CommandExecutor {
         } else {
             return false;
         }
-        return false;
     }
-    private void sendDefaultCommand(CommandSender sender, String command){
+    private void sendAdminDefaultCommand(CommandSender sender, String command){
         String sb = "";
         sb = sb + "\n ";
         sb = sb + "&7/" + command + " reload &8&fReloader &econfig.yml\n ";
+        sb = sb + "&7/" + command + " fangster &8&fÅbner GUI med &eFangster\n ";
+        sender.sendMessage(Chat.colored(sb));
+    }
+    private void sendNoobDefaultCommand(CommandSender sender, String command){
+        String sb = "";
+        sb = sb + "\n ";
+        sb = sb + "&7/" + command + " fangster &8&fÅbner GUI med &eFangster\n ";
         sender.sendMessage(Chat.colored(sb));
     }
 }
