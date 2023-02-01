@@ -12,6 +12,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerFishEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class PlayerFishListener implements Listener {
 
@@ -30,11 +31,15 @@ public class PlayerFishListener implements Listener {
             prizeWon.runMessages(player);
             prizeWon.runCommands(player);
             String addItem = prizeWon.getAddItem();
+            ItemStack prizeItem = prizeWon.getPreviewItem();
+            ItemMeta meta = prizeItem.getItemMeta();
+            meta.setLore(null);
+            prizeItem.setItemMeta(meta);
             if (addItem.equals("false")){
-                stack.setItemStack(new ItemStack(prizeWon.getPreviewItem()));
+                stack.setItemStack(prizeItem);
             } else if (addItem.equals("true")) {
                 event.getCaught().remove();
-                player.getInventory().addItem(new ItemStack(prizeWon.getPreviewItem()));
+                player.getInventory().addItem(prizeItem);
             }
 
         }
