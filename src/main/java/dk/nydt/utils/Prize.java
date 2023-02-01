@@ -1,5 +1,6 @@
 package dk.nydt.utils;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import dk.nydt.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,7 @@ public class Prize {
     private float percentage;
 
     private String name;
-
+    private String AddItem;
     private List<String> commands;
     private List<String> messages;
 
@@ -28,6 +29,7 @@ public class Prize {
 
     public Prize(String path){
         this.name = Main.configYML.getString("Fangster." + path + ".Name");
+        this.AddItem = Main.configYML.getString("Fangster." + path + ".Add-Item");
         Material itemType = Material.valueOf(Main.configYML.getString("Fangster." + path + ".Item-Type").toUpperCase());
         boolean isEnchanted = Main.configYML.getBoolean("Fangster." + path + ".Enchanted");
         this.percentage = (float) Main.configYML.getDouble("Fangster." + path + ".Chance");
@@ -49,6 +51,10 @@ public class Prize {
 
     public String getName(){
         return this.name;
+    }
+
+    public String getAddItem(){
+        return this.AddItem;
     }
     public List<String> getCommands(){
         return this.commands;

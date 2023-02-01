@@ -30,6 +30,7 @@ public class Fisk implements CommandExecutor {
             try {
                 Main.config.reloadConfig();
                 Main.configYML = Main.config.getConfig();
+                Main.rc.reload();
                 reloadSuccess = true;
             } catch(Exception e){
                 e.printStackTrace();
