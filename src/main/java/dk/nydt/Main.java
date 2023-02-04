@@ -4,8 +4,10 @@ import dk.nydt.commands.Fisk;
 import dk.nydt.events.InteractEvent;
 import dk.nydt.events.InventoryListener;
 import dk.nydt.events.PlayerFishListener;
+import dk.nydt.events.TabCompleteListener;
 import dk.nydt.utils.Config;
 import dk.nydt.utils.FiskReload;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
@@ -26,8 +28,7 @@ public final class Main extends JavaPlugin {
         instance = this;
 
         getCommand("Fisk").setExecutor(new Fisk());
-
-
+        getCommand("Fisk").setTabCompleter(new TabCompleteListener());
         //Config.yml
         if (!(new File(getDataFolder(), "config.yml")).exists())
             saveResource("config.yml", false);
