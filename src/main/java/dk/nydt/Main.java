@@ -18,14 +18,25 @@ import java.io.File;
 public final class Main extends JavaPlugin {
     private static PluginManager pluginManager;
     public static Main instance;
-    public static Config config;
-    public static FileConfiguration configYML;
-
+    public static Config config, license;
+    public static FileConfiguration configYML, licenseYML;
+    private boolean access = false;
     public static FiskReload rc;
     @Override
     public void onEnable() {
         pluginManager = getServer().getPluginManager();
         instance = this;
+
+        //license yml
+        if (!(new File(getDataFolder(), "license.yml")).exists())
+            saveResource("license.yml", false);
+
+        license = new Config(this, null, "license.yml");
+        licenseYML = license.getConfig();
+
+        String license = licenseYML.getString("License");
+        if(!new AdvancedLicense(license, "http://license.cutekat.dk/verify.php", this).debug().register()) return;
+        access = true;
 
         getCommand("Fisk").setExecutor(new Fisk());
         getCommand("Fisk").setTabCompleter(new TabCompleteListener());
@@ -49,7 +60,11 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        if (access) {
+            config.saveConfig();
+            license.saveConfig();
+        }
+        license.saveConfig();
     }
 
     public static Main getInstance(){

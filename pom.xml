@@ -6,12 +6,12 @@
 
     <groupId>dk.nydt</groupId>
     <artifactId>Fisk</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
     <packaging>jar</packaging>
 
     <name>Fisk</name>
 
-    <description>Fiskesytem til custom fisk</description>
+    <description>Fiskesytem til custom fangster</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
