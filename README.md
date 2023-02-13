@@ -13,6 +13,7 @@ Fangster:
     Item-Type: RAW_FISH
     Enchanted: true
     Chance: 50
+    Add-Item: false
     Messages:
       - "du fangede en FISK"
     Commands:
@@ -22,6 +23,7 @@ Fangster:
     Item-Type: CAKE
     Enchanted: false
     Chance: 25
+    Add-Item: true
     Messages:
       - "du fangede en kage og 10 kr"
     Commands:
@@ -31,6 +33,7 @@ Fangster:
     Item-Type: SIGN
     Enchanted: false
     Chance: 25
+    Add-Item: false
     Messages:
       - "du fangede en Sign og 10 kr"
     Commands:
